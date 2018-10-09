@@ -1,0 +1,207 @@
+.elx-dashboard-desktop {
+  max-width: 970px;
+  background: white;
+  height: 57px;
+  width: 100%;
+  margin: 36px 0 20px 0;
+  font-family: "Benton Sans";
+  border-bottom: #999999 solid 1px;
+  padding-bottom: 35px;
+  display: inline-table;
+
+  .elx-badge {
+    width: 109px;
+    height: 57px;
+    float: left;
+    margin-right: 7px;
+
+    .resultsLogoSVG {
+      margin: 0;
+      width: 37px;
+      height: 37px;
+      background-size: 37px 37px;
+      float: right;
+      background: url(http://stmedia.startribune.com/images/elex18-logo-fallback-100.png);
+      background: url(http://static.startribune.com/preview/elections-2018/homepage/elex18-logo-40.svg),
+      none;
+      background-repeat: no-repeat;
+    }
+
+    h4 {
+      color: #231F20;
+      font-size: 13px;
+      margin-top: 12px;
+      letter-spacing: .18px;
+    }
+
+    p {
+      font-size: 10px;
+      color: #231F20;
+    }
+  }
+  .elx-border {
+    width: 1px;
+    height: 57px;
+    background-color: #c9c8c8;
+    float: left;
+    margin: 0 10px;
+  }
+  /*STANDARD BOX*/
+  .elx-standard-result {
+    width: 97px;
+    height: 57px;
+    background: white;
+    float: left;
+    margin: 0 10px;
+
+    .header {
+      color: #231F20;
+      font-weight: bold;
+      font-size: 10px;
+      padding-bottom: 4px;
+    }
+
+    .candidate1,
+    .candidate2 {
+      color: #231F20;
+      padding-bottom: 2px;
+      margin-bottom: 2px;
+      width: 100%;
+      display: inline-table;
+      clear: both;
+      border-bottom: 1px #c9c8c8 solid;
+      .check {
+        float: left;
+        font-size: 9.5px;
+        min-width: 10px;
+      }
+      .name {
+        float: left;
+        font-size: 9.5px;
+        .party {
+          font-size: 7.5px;
+        }
+      }
+      .percent {
+        padding-top: 1px;
+        float: right;
+        font-size: 9px;
+        &.winner {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .candidate2 {
+      clear: both;
+      border-bottom: 0;
+    }
+
+    .elx-reporting {
+      color: #2A2A2A;
+      font-size: 7px;
+      letter-spacing: .5px;
+      padding-top: 2px;
+    }
+  }
+
+  /*BOP BOX*/
+  .elx-bop-result {
+    width: 97px;
+    height: 57px;
+    float: left;
+    margin: 0 10px;
+    position: relative;
+    &.last {
+      float: right;
+      margin: 0 0 0 10px;
+    }
+
+    .header {
+      color: #231F20;
+      font-weight: bold;
+      font-size: 10px;
+      padding-bottom: 4px;
+    }
+
+    .dem-big-number {
+      font-size: 14px;
+      font-weight: bold;
+      color: #2964ab;
+      float: left;
+    }
+
+    .gop-big-number {
+      font-size: 14px;
+      font-weight: bold;
+      color: #bc1f34;
+      float: right;
+    }
+
+    .stacked-bar-graph {
+      width: 100%;
+      height: 10px;
+      color: #cccccc;
+      span {
+        display: inline-block;
+        height: 100%;
+        box-sizing: border-box;
+        float: left;
+        padding: 0;
+      }
+      .bar-dem {
+        background: #22409a;
+      }
+
+      .bar-grey {
+        background: #cccccc;
+      }
+
+      .bar-gop {
+        background: #da2228;
+      }
+    }
+
+    .dem-little {
+      font-size: 7.5px;
+      margin-top: 2px;
+      font-weight: bold;
+      color: #222222;
+      float: left;
+    }
+
+    .gop-little {
+      font-size: 7.5px;
+      margin-top: 2px;
+      font-weight: bold;
+      color: #222222;
+      float: right;
+    }
+
+    .center {
+      font-size: 8px;
+      line-height: 9px;
+      color: #333333;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      margin-top: -37px;
+      z-index: 55;
+      span {
+        color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+
+    .elx-reporting {
+      color: #2A2A2A;
+      font-size: 7px;
+      letter-spacing: .5px;
+      padding-top: 0px;
+      margin-top: -8px;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
