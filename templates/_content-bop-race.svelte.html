@@ -18,27 +18,4 @@
     <div class="elx-reporting"> { 60 }% REPORTING  </div>
   </div>
 
-  <script>
-  // Dependencies and components
-  import Header from "./_content-header.svelte.html";
-  import Office from "./_content-office.svelte.html";
-  import Body from "./_content-body.svelte.html";
-  import StandardRace from "./_content-standard-race.svelte.html";
-  import BopRace from "./_content-bop-race.svelte.html";
-
-
-  // Svelte logic
-  export default {
-    components: {
-
-      StandardRace,
-      BopRace
-    },
-
-    oncreate: function() {
-      if (this.get().attachShare) {
-        this.get().attachShare();
-      }
-    }
-  };
-</script>
+ 

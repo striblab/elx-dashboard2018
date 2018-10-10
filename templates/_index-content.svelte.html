@@ -5,6 +5,27 @@
     <p>See full results</p>
   </div>
   <div class="elx-border"></div>
+
+   <StandardRace 
+      id="governor"
+      title="Governor"
+      reporting="{60}"
+      candidates='{[
+        { winner: true, name: "Walz", party: "D", percent: 44 },
+        { winner: false, name: "Murphy", party: "R", percent: 45 }
+      ]}'
+      />
+  
+   <StandardRace 
+      id="bgovernor"
+      title="bGovernor"
+      reporting="{60}"
+      candidates='{[
+        { winner: true, name: "Walz", party: "D", percent: 44 },
+        { winner: false, name: "Murphy", party: "R", percent: 45 }
+      ]}'
+      />
+
   <!--  STANDARD RACE RESULT 1-->
   <div class="elx-standard-result">
     <div class="header">Governor</div>
@@ -225,33 +246,6 @@
           </td>
         </tr>
       </table>
-
-       <script>
-
-        
-  // Dependencies and components
-  // import Header from "./_content-header.svelte.html";
-  // import Office from "./_content-office.svelte.html";
-  import Body from "./_content-body.svelte.html";
-  import StandardRace from "./_content-standard-race.svelte.html";
-  import BopRace from "./_content-bop-race.svelte.html";
-
-
-  // Svelte logic
-  export default {
-    components: {
-
-      StandardRace,
-      BopRace
-    },
-
-    oncreate: function() {
-      if (this.get().attachShare) {
-        this.get().attachShare();
-      }
-    }
-  };
-</script>
       <div class="reporting">100% REPORTING</div>
       <div class="center">
         <span>|</span>
@@ -259,3 +253,24 @@
     </div>
   </div>
 </div>
+
+ <script>
+  // Dependencies and components
+ // import Header from "./_content-header.svelte.html"; 
+ // import Office from "./_content-office.svelte.html";
+
+  // import Body from "./_content-body.svelte.html";
+  import StandardRace from "./_content-standard-race.svelte.html";
+  import BopRace from "./_content-bop-race.svelte.html";
+
+
+  // Svelte logic
+  export default {
+    components: {
+      StandardRace,
+      BopRace
+    },
+
+   
+  };
+</script>

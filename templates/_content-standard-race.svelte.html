@@ -1,14 +1,26 @@
-  <div class="elx-standard-result">
-    <div class="header">{ Governor }</div>
-    <div class="candidate1">
-      <div class="check">{ x }</div>
-      <div class="name"> { Walz } <span class="party">(D)</span></div>
-      <div class="percent winner">{ 48 }%</div>
-    </div>
-    <div class="candidate2">
-      <div class="check">{ &nbsp; }</div>
-      <div class="name">{ Murphy } <span class="party">(R)</span></div>
-      <div class="percent">{ 44 }%</div>
-    </div>
-    <div class="elx-reporting">{ 60 }% REPORTING</div>
+<div class="elx-standard-result">
+  <div class="header">{ title }</div>
+  {#each candidates as candidate, index}
+  <div class="candidate{index + 1}">
+    <div class="check">{ #if candidate.winner }x{:else}&nbsp;{/if}</div>
+    <div class="name"> { candidate.name } <span class="party">({ candidate.party })</span></div>
+    <div class="percent winner">{ candidate.percent }%</div>
   </div>
+  {/each}
+  <div class="elx-reporting">{ reporting }% REPORTING</div>
+</div>
+<script>
+export default {
+  data: function() {
+    return {
+      title: "Governor",
+      reporting: 60,
+      candidates: [
+        { winner: true, name: "Walz", party: "D", percent: 44 },
+        { winner: false, name: "Murphy", party: "R", percent: 45 }
+      ]
+    }
+  }
+}
+
+</script>
