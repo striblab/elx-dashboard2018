@@ -123,7 +123,7 @@
     <div class="elx-reporting">60% REPORTING</div>
   </div>
 </div>
-<!-- MOBILE VERSION -->
+<!-- MOBILE VERSION1 -->
 <div class="elx-dashboard">
   <div class="elx-badge">
     <h4>ELECTION</h4>
@@ -137,7 +137,7 @@
       <div class="candidate1">
         <div class="check">x</div>
         <div class="name">Walz <span class="party">(D)</span></div>
-        <div class="percent winner">48%</div>
+        <div class="percent winner">49%</div>
       </div>
       <div class="candidate2">
         <div class="check">&nbsp;</div>
@@ -225,6 +225,33 @@
           </td>
         </tr>
       </table>
+
+       <script>
+
+        
+  // Dependencies and components
+  // import Header from "./_content-header.svelte.html";
+  // import Office from "./_content-office.svelte.html";
+  import Body from "./_content-body.svelte.html";
+  import StandardRace from "./_content-standard-race.svelte.html";
+  import BopRace from "./_content-bop-race.svelte.html";
+
+
+  // Svelte logic
+  export default {
+    components: {
+
+      StandardRace,
+      BopRace
+    },
+
+    oncreate: function() {
+      if (this.get().attachShare) {
+        this.get().attachShare();
+      }
+    }
+  };
+</script>
       <div class="reporting">100% REPORTING</div>
       <div class="center">
         <span>|</span>
