@@ -109,3 +109,21 @@ video {
 body {
   font: 13px/1.231 "Benton Sans", sans-serif;
 }
+
+.elx-dashboard-mobile {
+  display: none!important;
+}
+
+.elx-dashboard-desktop {
+  display: block!important;
+}
+
+@media only screen and (max-width: 969px) {
+
+.elx-dashboard-mobile {
+    display: block!important;
+  }
+.elx-dashboard-desktop {
+    display: none!important;
+  }
+}
