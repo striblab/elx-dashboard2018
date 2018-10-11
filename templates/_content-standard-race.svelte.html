@@ -1,11 +1,14 @@
 <div class="elx-standard-result">
   <div class="header">{ title }</div>
- {#each candidates as candidate, index}
-
+  {#each candidates as candidate, index}
   <div class="candidate{index + 1}">
-    <div class="check">{ #if candidate.winner }x{:else}&nbsp;{/if}</div>
+    <div class="check">{ #if candidate.winner }x{:else}&nbsp;{ /if }</div>
     <div class="name"> { candidate.name } <span class="party">({ candidate.party })</span></div>
-    <div class="percent winner">{ candidate.percent }%</div>
+    { #if candidate.winner }
+    <div class='percent winner'>{ candidate.percent }%</div>
+    { :else }
+    <div class='percent'>{ candidate.percent }%</div>
+    { /if }
   </div>
   {/each}
   <div class="elx-reporting">{ reporting }% REPORTING</div>
