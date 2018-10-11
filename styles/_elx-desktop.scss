@@ -106,13 +106,16 @@
   }
 
   /*BOP BOX*/
-  .elx-bop-result {
+  .elx-bop-result-mobile {
+    display: none;
+  }
+  .elx-bop-result-desktop {
     width: 97px;
     height: 57px;
     float: left;
     margin: 0 10px;
     position: relative;
-    &.last {
+    &:last-child {
       float: right;
       margin: 0 0 0 10px;
     }

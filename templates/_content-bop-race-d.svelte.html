@@ -1,0 +1,41 @@
+<div class="elx-bop-result-desktop">
+  <div class="header">{ title }</div>
+  <div class="dem-big-number">{ parties[0].seats }</div>
+  <div class="gop-big-number">{ parties[1].seats } </div>
+  <br clear=all>
+  <div class="stacked-bar-graph">
+    <span style="width:{ (parties[0].seats / total) * 100}%" class="bar-dem"></span>
+    <span style="width:{ ((total - (parties[0].seats + parties[1].seats))) * 100 / total  }%" class="bar-grey"></span>
+    <span style="width:{ (parties[1].seats / total) * 100 }%" class="bar-gop"></span>
+  </div>
+  <div class="dem-little">D</div>
+  <div class="gop-little">R</div>
+  <br clear=all>
+  <div class="center">{ majority }
+    <br>
+    <span>|</span>
+  </div>
+  <div class="elx-reporting"> { reporting }% REPORTING </div>
+</div>
+
+
+
+
+
+<script>
+export default {
+  data: function() {
+    return {
+      title: "U.S. Senate",
+      total: 100,
+      majority: 51,
+      reporting: 60,
+      parties: [
+        { winner: true, party: "D", seats: 40 },
+        { winner: false, party: "R", seats: 40 }
+      ]
+    }
+  }
+}
+
+</script>
