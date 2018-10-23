@@ -40,8 +40,8 @@
     },
     "production": {
       "bucket": "static.startribune.com",
-      "path": "news/projects/all/elx-dashboard-2018",
-      "url": "http://static.startribune.com/news/projects/all/elx-dashboard-2018/",
+      "path": "elections/elx-dashboard-2018",
+      "url": "http://static.startribune.com/elections/elx-dashboard-2018/",
       "cacheSeconds": 600
     }
   }
