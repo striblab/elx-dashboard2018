@@ -14,7 +14,6 @@
     border-top: 1px #ccc solid;
     border-bottom: 1px #ccc solid;
 
-
     .resultsLogoSVG {
       display: inline;
       margin: -4px 0 -5px 0;
@@ -24,28 +23,27 @@
       float: left;
       background: url(http://stmedia.startribune.com/images/elex18-logo-fallback-100.png);
       background: url(http://static.startribune.com/preview/elections-2018/homepage/elex18-logo-40.svg),
-      none;
+        none;
       background-repeat: no-repeat;
     }
 
     h4 {
-      color: #231F20;
+      color: #231f20;
       font-size: 11px;
       margin: 2px 0 0 0;
       padding-right: 4px;
-      letter-spacing: .11px;
+      letter-spacing: 0.11px;
       float: left;
     }
 
     p {
       font-size: 9px;
-      color: #231F20;
+      color: #231f20;
       float: right;
       margin: 3px 0 0 0;
       text-transform: uppercase;
     }
   }
-
 
   .elx-border {
     width: 1px;
@@ -62,13 +60,12 @@
     margin: 12px 0 0 0;
     display: inline-table;
     .elx-standard-result {
-
       width: 30%;
       height: 56px;
       float: left;
       margin: 0 5% 0 0;
       @media only screen and (max-width: 300px) {
-        width:91px;
+        width: 91px;
         margin-right: 13px;
       }
       &:last-child {
@@ -77,18 +74,15 @@
       }
 
       .header {
-        color: #231F20;
+        color: #231f20;
         font-weight: bold;
         font-size: 8.5px;
         padding-bottom: 0px;
         margin-bottom: 3px;
       }
 
-
-
-      .candidate1,
-      .candidate2 {
-        color: #231F20;
+      .candidate {
+        color: #231f20;
         margin-bottom: 1px;
         width: 100%;
         display: block;
@@ -115,20 +109,21 @@
             font-weight: bold;
           }
         }
-      }
-      .candidate2 {
-        clear: both;
-        border-bottom: 0;
-        padding: 0;
-        margin: 1px 0 0 0;
-        line-height: 1em;
+
+        &:nth-child(odd) {
+          clear: both;
+          border-bottom: 0;
+          padding: 0;
+          margin: 1px 0 0 0;
+          line-height: 1em;
+        }
       }
 
       .elx-reporting {
         display: block;
-        color: #2A2A2A;
+        color: #2a2a2a;
         font-size: 7px;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         padding-top: 3px;
       }
     }
@@ -151,7 +146,7 @@
       }
 
       .header {
-        color: #231F20;
+        color: #231f20;
         font-weight: bold;
         font-size: 8.5px;
         padding-bottom: 0px;
@@ -252,9 +247,9 @@
 
       .elx-reporting {
         display: block;
-        color: #2A2A2A;
+        color: #2a2a2a;
         font-size: 7px;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         padding-top: 0px;
         margin-top: 5px;
         width: 100%;

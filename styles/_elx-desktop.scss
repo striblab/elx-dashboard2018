@@ -23,20 +23,20 @@
       float: right;
       background: url(http://stmedia.startribune.com/images/elex18-logo-fallback-100.png);
       background: url(http://static.startribune.com/preview/elections-2018/homepage/elex18-logo-40.svg),
-      none;
+        none;
       background-repeat: no-repeat;
     }
 
     h4 {
-      color: #231F20;
+      color: #231f20;
       font-size: 13px;
       margin-top: 12px;
-      letter-spacing: .18px;
+      letter-spacing: 0.18px;
     }
 
     p {
       font-size: 10px;
-      color: #231F20;
+      color: #231f20;
     }
   }
   .elx-border {
@@ -55,15 +55,14 @@
     margin: 0 10px;
 
     .header {
-      color: #231F20;
+      color: #231f20;
       font-weight: bold;
       font-size: 10px;
       padding-bottom: 4px;
     }
 
-    .candidate1,
-    .candidate2 {
-      color: #231F20;
+    .candidate {
+      color: #231f20;
       padding-bottom: 2px;
       margin-bottom: 2px;
       width: 100%;
@@ -90,17 +89,17 @@
           font-weight: bold;
         }
       }
-    }
 
-    .candidate2 {
-      clear: both;
-      border-bottom: 0;
+      &:nth-child(odd) {
+        clear: both;
+        border-bottom: 0;
+      }
     }
 
     .elx-reporting {
-      color: #2A2A2A;
+      color: #2a2a2a;
       font-size: 7px;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
       padding-top: 2px;
     }
   }
@@ -121,7 +120,7 @@
     }
 
     .header {
-      color: #231F20;
+      color: #231f20;
       font-weight: bold;
       font-size: 10px;
       padding-bottom: 4px;
@@ -190,7 +189,7 @@
       width: 100%;
       margin-top: -37px;
       z-index: 55;
-      padding-bottom:37px;
+      padding-bottom: 37px;
       span {
         color: #fff;
         font-size: 14px;
@@ -199,9 +198,9 @@
     }
 
     .elx-reporting {
-      color: #2A2A2A;
+      color: #2a2a2a;
       font-size: 7px;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
       padding-top: 0px;
       margin-top: -8px;
       width: 100%;

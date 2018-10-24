@@ -1,30 +1,57 @@
 <div class="elx-standard-result">
-  <div class="header">{ title }</div>
-  {#each candidates as candidate, index}
-  <div class="candidate{index + 1}">
-    <div class="check">{ #if candidate.winner }x{:else}&nbsp;{ /if }</div>
-    <div class="name"> { candidate.name } <span class="party">({ candidate.party })</span></div>
-    { #if candidate.winner }
-    <div class='percent winner'>{ candidate.percent }%</div>
-    { :else }
-    <div class='percent'>{ candidate.percent }%</div>
-    { /if }
-  </div>
-  {/each}
-  <div class="elx-reporting">{ reporting }% REPORTING</div>
-</div>
-<script>
-export default {
-  data: function() {
-    return {
-      title: "Governor",
-      reporting: 60,
-      candidates: [
-        { winner: true, name: "Walz", party: "D", percent: 44 },
-        { winner: false, name: "Murphy", party: "R", percent: 45 }
-      ]
-    }
-  }
-}
+  <div class="header">{ customTitle || shortTitle }</div>
 
+  {#if loaded}
+    {#each contests[0].results as result, ri}
+      {#if ~['dfl', 'dem', 'rep', 'gop'].indexOf(result.candidate.party_id)}
+        <div class="candidate">
+          <div class="check">{ #if result.winner }x{:else}&nbsp;{ /if }</div>
+          <div class="name">
+            { result.candidate.last }
+            <span class="party">({ result.candidate.party.abbreviation[0] })</span>
+          </div>
+
+          { #if result.winner }
+            <div class='percent winner'>{ Math.round(result.percent * 100) }%</div>
+          { :else }
+            <div class='percent'>{ Math.round(result.percent * 100) }%</div>
+          { /if }
+        </div>
+      {/if}
+    {/each}
+
+    <div class="elx-reporting">
+      { Math.round(contests[0].reporting / contests[0].totalPrecincts * 100) }% REPORTING
+    </div>
+  {/if}
+</div>
+
+<script>
+  import Civix from "../app/shared/civix.js";
+
+  // Svelte logic
+  export default {
+    components: {},
+
+    oncreate() {
+      if (!this.get().embedded) {
+        this.civix = new Civix(`contests/by-office/${this.get().id}`);
+        this.civix.on("update", office => {
+          this.set(office);
+          this.set({ loaded: true });
+        });
+        this.civix.poll();
+      }
+    },
+
+    ondestroy() {
+      if (this.civix) {
+        this.civix.cancel();
+      }
+    },
+
+    data: function() {
+      return {};
+    }
+  };
 </script>

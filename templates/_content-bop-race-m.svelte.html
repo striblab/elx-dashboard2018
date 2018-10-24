@@ -1,45 +1,117 @@
 
-<div class="elx-bop-result-mobile ">
-      <div class="header">{ title }
-        <div class="header-center-text">{ majority } seats majority</div>
-      </div>
-      <table class="bop-table">
-        <tr>
-          <td>
-            <div class="dem-little">D</div>
-          </td>
-          <td style="width:100%;">
-            <div class="stacked-bar-graph">
-              <span style="width:{ (parties[0].seats / total) * 100}%" class="bar-dem"><span>{ parties[0].seats }</span></span>
-              <span style="width:{ ((total - (parties[0].seats + parties[1].seats))) * 100 / total  }%" class="bar-grey"></span>
-              <span style="width:{ (parties[1].seats / total) * 100 }%" class="bar-gop"><span>{ parties[1].seats }</span></span>
-            </div>
-          </td>
-          <td>
-            <div class="gop-little">R</div>
-          </td>
-        </tr>
-      </table>
-      <div class="elx-reporting">{ reporting }% REPORTING</div>
-      <div class="center"><span>|</span></div>
+<div class="elx-bop-result-mobile">
+  {#if loaded}
+    <div class="header">
+      { customTitle || title }
+
+      <div class="header-center-text">{ majority } seats majority</div>
     </div>
 
+    <table class="bop-table">
+      <tr>
+        <td>
+          <div class="dem-little">D</div>
+        </td>
 
+        <td style="width:100%;">
+          <div class="stacked-bar-graph">
+            <span style="width:{ (demTotal / total) * 100}%" class="bar-dem"><span>{ demTotal }</span></span>
+            <span style="width:{ ((total - (demTotal + repTotal))) * 100 / total  }%" class="bar-grey"></span>
+            <span style="width:{ (repTotal / total) * 100 }%" class="bar-gop"><span>{ repTotal }</span></span>
+          </div>
+        </td>
+
+        <td>
+          <div class="gop-little">R</div>
+        </td>
+      </tr>
+    </table>
+
+    <!--
+      <div class="elx-reporting">{ reporting }% REPORTING</div>
+    -->
+
+    <div class="center"><span>|</span></div>
+  {/if}
+</div>
 
 <script>
-export default {
-  data: function() {
-    return {
-      title: "U.S. Senate",
-      total: 100,
-      majority: 51,
-      reporting: 60,
-      parties: [
-        { winner: true, party: "D", seats: 40 },
-        { winner: false, party: "R", seats: 40 }
-      ]
-    }
-  }
-}
+  import Civix from "../app/shared/civix.js";
+  import { find, each } from "lodash";
 
+  // Svelte logic
+  export default {
+    components: {},
+
+    oncreate() {
+      if (!this.get().embedded) {
+        this.civix = new Civix(`trends/by-body/${this.get().id}`);
+        this.civix.on("update", body => {
+          this.set(body);
+          this.set({ loaded: true });
+        });
+        this.civix.poll();
+      }
+    },
+
+    ondestroy() {
+      if (this.civix) {
+        this.civix.cancel();
+      }
+    },
+
+    computed: {
+      dem: ({ trends, loaded }) => {
+        if (!loaded) {
+          return;
+        }
+
+        let dem = find(trends, { party_id: "dem" });
+
+        // For dems, we add the others, as the senate has some
+        // independent.
+        // TODO: Ask around
+        let others = find(trends, { party_id: "oth" });
+        dem.current += others.current;
+        dem.holdovers += others.holdovers;
+        dem.insufficientVote += others.insufficientVote;
+        dem.leading += others.leading;
+        dem.netLeaders += others.netLeaders;
+        dem.netWinners += others.netWinners;
+        dem.winningTrend += others.winningTrend;
+        dem.won += others.won;
+
+        return dem;
+      },
+
+      rep: ({ trends, loaded }) => {
+        if (!loaded) {
+          return;
+        }
+        return find(trends, { party_id: "rep" });
+      },
+
+      demTotal: ({ dem, loaded }) => {
+        if (!loaded) {
+          return;
+        }
+
+        return dem.holdovers + dem.won;
+      },
+
+      repTotal: ({ rep, loaded }) => {
+        if (!loaded) {
+          return;
+        }
+
+        return rep.holdovers + rep.won;
+      }
+    },
+
+    data: function() {
+      return {
+        loaded: false
+      };
+    }
+  };
 </script>
