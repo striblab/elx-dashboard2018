@@ -4,50 +4,17 @@
     <h4>ELECTION</h4>
     <p>See full results</p>
   </div>
-
   <div class="elx-border"></div>
-
-  <StandardRace
-    id="usa-mn-governor"
-    customTitle="Governor"
-  />
-
-  <StandardRace
-    id="usa-congress-senate-mn-class-i"
-    customTitle="Senate"
-  />
-  <StandardRace
-    id="usa-congress-senate-mn-class-ii"
-    customTitle="Senate"
-  />
-
-  <StandardRace
-    id="usa-congress-house-mn-03"
-    customTitle="U.S. House, MN3"
-  />
-
-  <StandardRace
-    id="usa-mn-attorney-general"
-    customTitle="Attorney General"
-  />
-
+  <StandardRace id="usa-mn-governor" customTitle="Governor" />
+  <StandardRace id="usa-congress-senate-mn-class-i" customTitle="Senate" />
+  <StandardRace id="usa-congress-senate-mn-class-ii" customTitle="Senate" />
+  <StandardRace id="usa-congress-house-mn-03" customTitle="U.S. House, MN3" />
+  <StandardRace id="usa-mn-attorney-general" customTitle="Attorney General" />
   <!-- BORDER -->
   <div class="elx-border"></div>
   <!-- BOP RESULT -->
-
-  <BopRaceDesktop
-    id="usa-congress-senate"
-    customTitle="U.S. Senate"
-    total="{ 100 }"
-    majority="{ 51 }"
-  />
-
-  <BopRaceDesktop
-    id="usa-congress-house"
-    customTitle="U.S. House"
-    total="{ 435 }"
-    majority="{ 218 }"
-  />
+  <BopRaceDesktop id="usa-congress-senate" customTitle="U.S. Senate" total="{ 100 }" majority="{ 51 }" />
+  <BopRaceDesktop id="usa-congress-house" customTitle="U.S. House" total="{ 435 }" majority="{ 218 }" />
 </div>
 <!-- MOBILE VERSION1 -->
 <!-- MOBILE VERSION1 -->
@@ -60,56 +27,33 @@
   </div>
   <div class="row1">
     <!--  FIRST -->
-
-    <StandardRace
-      id="usa-mn-governor"
-      customTitle="Governor"
-    />
-
-    <StandardRace
-      id="usa-congress-senate-mn-class-ii"
-      customTitle="Senate"
-    />
-
-    <StandardRace
-      id="usa-mn-attorney-general"
-      customTitle="Attorney General"
-    />
+    <StandardRace id="usa-mn-governor" customTitle="Governor" />
+    <StandardRace id="usa-congress-senate-mn-class-ii" customTitle="Senate" />
+    <StandardRace id="usa-mn-attorney-general" customTitle="Attorney General" />
   </div>
-
   <div class="row2">
     <!-- BOP RESULT -->
-    <BopRaceMobile
-      id="usa-congress-senate"
-      customTitle="U.S. Senate"
-      total="{ 100 }"
-      majority="{ 51 }"
-    />
-
-    <BopRaceMobile
-      id="usa-congress-house"
-      customTitle="U.S. House"
-      total="{ 435 }"
-      majority="{ 218 }"
-    />
+    <BopRaceMobile id="usa-congress-senate" customTitle="U.S. Senate" total="{ 100 }" majority="{ 51 }" />
+    <BopRaceMobile id="usa-congress-house" customTitle="U.S. House" total="{ 435 }" majority="{ 218 }" />
   </div>
 </div>
 <script>
-  // Dependencies and components
-  // import Header from "./_content-header.svelte.html";
-  // import Office from "./_content-office.svelte.html";
-  // import Body from "./_content-body.svelte.html";
+// Dependencies and components
+// import Header from "./_content-header.svelte.html";
+// import Office from "./_content-office.svelte.html";
+// import Body from "./_content-body.svelte.html";
 
-  import StandardRace from "./_content-standard-race.svelte.html";
-  import BopRaceDesktop from "./_content-bop-race-d.svelte.html";
-  import BopRaceMobile from "./_content-bop-race-m.svelte.html";
+import StandardRace from "./_content-standard-race.svelte.html";
+import BopRaceDesktop from "./_content-bop-race-d.svelte.html";
+import BopRaceMobile from "./_content-bop-race-m.svelte.html";
 
-  // Svelte logic
-  export default {
-    components: {
-      StandardRace,
-      BopRaceDesktop,
-      BopRaceMobile
-    }
-  };
+// Svelte logic
+export default {
+  components: {
+    StandardRace,
+    BopRaceDesktop,
+    BopRaceMobile
+  }
+};
+
 </script>

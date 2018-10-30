@@ -23,9 +23,9 @@
       <span>|</span>
     </div>
 
-    <!--
-      <div class="elx-reporting"> { reporting }% REPORTING </div>
-    -->
+    
+      <div class="elx-reporting"> UPDATED AT { updatedAt } </div>
+    
   {/if}
 </div>
 
@@ -64,7 +64,7 @@
 
         // For dems, we add the others, as the senate has some
         // independent.
-        // TODO: Ask around
+       
         let others = find(trends, { party_id: "oth" });
         dem.current += others.current;
         dem.holdovers += others.holdovers;
@@ -99,6 +99,14 @@
         }
 
         return rep.holdovers + rep.won;
+      },
+
+      updatedAt: ({ updated_at, loaded }) => {
+        if (!loaded) {
+          return;
+        }
+
+        return moment(updated_at).format('LT');
       }
     },
 
