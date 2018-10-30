@@ -42,6 +42,17 @@
       float: right;
       margin: 3px 0 0 0;
       text-transform: uppercase;
+
+      a {
+        color: #231f20;
+        text-decoration: none;
+        outline: none;
+      }
+
+      a:hover {
+        color: #222222;
+        text-decoration: none;
+      }
     }
   }
 
@@ -52,6 +63,7 @@
     float: left;
     margin: 0 10px;
   }
+
   /*STANDARD BOX*/
   .row1 {
     display: block;
@@ -59,15 +71,18 @@
     width: 100%;
     margin: 12px 0 0 0;
     display: inline-table;
+
     .elx-standard-result {
       width: 30%;
       height: 56px;
       float: left;
       margin: 0 5% 0 0;
+
       @media only screen and (max-width: 300px) {
         width: 91px;
         margin-right: 13px;
       }
+
       &:last-child {
         float: right;
         margin: 0;
@@ -89,22 +104,27 @@
         height: 15px;
         clear: both;
         border-bottom: 1px #c9c8c8 solid;
+
         .check {
           float: left;
           font-size: 9px;
           min-width: 10px;
         }
+
         .name {
           float: left;
           font-size: 9px;
         }
+
         .party {
           font-size: 7px;
         }
+
         .percent {
           padding-top: 1px;
           float: right;
           font-size: 8.5px;
+
           &.winner {
             font-weight: bold;
           }
@@ -128,18 +148,21 @@
       }
     }
   }
+
   /*BOP BOX*/
   .row2 {
     clear: both;
     width: 100%;
     margin: 12px 0 19px 0;
     display: inline-table;
+
     .elx-bop-result-mobile {
       width: 46.5%;
       height: 39px;
       float: left;
       margin: 0;
       position: relative;
+
       &:last-child {
         float: right;
         margin: 0 0 0 7%;
@@ -150,6 +173,7 @@
         font-weight: bold;
         font-size: 8.5px;
         padding-bottom: 0px;
+
         .header-center-text {
           width: 50%;
           float: right;
@@ -158,18 +182,21 @@
           margin-left: -3px;
         }
       }
+
       .bop-table {
         border: none;
         vertical-align: middle;
         margin: 4px 0 0 0;
         border-collapse: collapse;
         border-spacing: 0;
+
         td {
           border: none;
           vertical-align: middle;
           padding: 0;
           min-width: 8px;
         }
+
         .stacked-bar-graph {
           width: 100%;
           height: 12px;
@@ -202,11 +229,13 @@
               width: 100%;
             }
           }
+
           span {
             display: inline-block;
             height: 100%;
             box-sizing: border-box;
             float: left;
+
             span {
               padding: 1.2px 3px;
             }
@@ -238,6 +267,7 @@
         text-align: center;
         width: 100%;
         margin-top: -24px;
+
         span {
           color: #fff;
           font-size: 14px;

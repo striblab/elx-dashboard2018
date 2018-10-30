@@ -37,6 +37,8 @@
     p {
       font-size: 10px;
       color: #231f20;
+      a {color: #231f20;text-decoration:none;outline:none;}
+      a:hover { color: #222222;text-decoration:none;}
     }
   }
   .elx-border {
