@@ -6,14 +6,39 @@
 // Main civix class
 class Civix {
   constructor(resource, options = {}) {
+    // The default is helpful to change as a state
+    options.environment = options.environment || 'test';
+    // If on startribune.com, always use prod
+    if (
+      window &&
+      window.location &&
+      window.location.hostname &&
+      window.location.hostname.match(/startribune.com/i)
+    ) {
+      options.environment = 'prod';
+    }
+    // Allow to manuall switch with query
+    if (
+      window &&
+      window.location &&
+      window.location.search &&
+      window.location.search.match(/civix=prod/i)
+    ) {
+      options.environment = 'prod';
+    }
+
     options.endpoint =
-      options.endpoint || '//static.startribune.com/elections/civix-test/v2/';
+      options.endpoint ||
+      `//static.startribune.com/elections/${
+        options.environment === 'test' ? 'civix-test' : 'civix'
+      }/v2/`;
     options.election = options.election || '2018-11-06';
     options.jitter =
       options.jitter === false || options.jitter === true
         ? options.jitter
         : true;
-    options.polling = 30 + (options.jitter ? Math.random() * 5 : 0);
+    options.polling =
+      options.polling || 30 + (options.jitter ? Math.random() * 5 : 0);
     options.autostart =
       options.autostart === false || options.autostart === true
         ? options.autostart
@@ -83,9 +108,13 @@ class Civix {
 
   // Do api fetch
   fetch() {
+    let cacher = Math.round(Date.now() / 1000 / 30) * 30;
+
     return window
       .fetch(
-        `${this.options.endpoint}/${this.options.election}/${this.resource}`
+        `${this.options.endpoint}/${this.options.election}/${
+          this.resource
+        }?_t=${cacher}`
       )
       .then(response => {
         return response.json();
