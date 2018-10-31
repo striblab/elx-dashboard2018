@@ -21,7 +21,7 @@
     {/each}
 
     <div class="elx-reporting">
-      { Math.round(contests[0].reporting / contests[0].totalPrecincts * 100) }% REPORTING
+      { percentReporting }% REPORTING
     </div>
   {/if}
 </div>
@@ -47,6 +47,20 @@
     ondestroy() {
       if (this.civix) {
         this.civix.cancel();
+      }
+    },
+
+    computed: {
+      percentReporting({ contests }) {
+        if (contests && contests.length && contests[0]) {
+          if (contests[0].reporting && contests[0].totalPrecincts) {
+            return Math.round(
+              (contests[0].reporting / contests[0].totalPrecincts) * 100
+            );
+          }
+        }
+
+        return "0";
       }
     },
 

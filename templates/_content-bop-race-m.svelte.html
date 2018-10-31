@@ -27,9 +27,9 @@
       </tr>
     </table>
 
-    
+
       <div class="elx-reporting">UPDATED { updatedAt }</div>
-    
+
 
     <div class="center"><span>|</span></div>
   {/if}
@@ -111,7 +111,7 @@
           return;
         }
 
-        return moment(updated_at).format('LT');
+        return updated_at && moment ? moment(updated_at).format("LT") : "";
       }
     },
 
