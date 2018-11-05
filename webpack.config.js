@@ -4,6 +4,8 @@
  */
 const fs = require('fs');
 const path = require('path');
+const glob = require('glob');
+const _ = require('lodash');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 // For whatever reason babel doesn't seem to work with the Svelte
@@ -56,12 +58,17 @@ const loaders = {
 };
 
 module.exports = {
-  mode: process.env.NODE_ENV || 'production',
+  mode:
+    ~['development', 'production', 'none'].indexOf(process.env.NODE_ENV) ||
+    'production',
   devtool: 'source-map',
-  entry: './app/index.js',
+  // Needs a key so that [name] can be used in output.
+  entry: _.mapKeys(glob.sync('./app/*.js'), v => {
+    return path.basename(v, '.js');
+  }),
   output: {
-    path: path.resolve(__dirname, './build'),
-    filename: 'app.bundle.js'
+    path: path.resolve(__dirname, './build/js'),
+    filename: '[name].bundle.js'
   },
   module: {
     rules: [
