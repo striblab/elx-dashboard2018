@@ -5,7 +5,7 @@
     {#each contests[0].results as result, ri}
       {#if ~['dfl', 'dem', 'rep', 'gop'].indexOf(result.candidate.party_id)}
         <div class="candidate">
-          <div class="check">{ #if result.winner }x{:else}&nbsp;{ /if }</div>
+          <div class="check">{ #if result.winner }✔{:else}&nbsp;{ /if }</div>
           <div class="name">
             { result.candidate.last }
             <span class="party">({ result.candidate.party.abbreviation[0] })</span>
