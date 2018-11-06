@@ -101,12 +101,17 @@
         return rep.holdovers + rep.won;
       },
 
-      updatedAt: ({ updated_at, loaded }) => {
+      updatedAt: ({ updated_at, loaded, trends }) => {
         if (!loaded) {
           return;
         }
 
-        return updated_at && moment ? moment(updated_at).format("LT") : "";
+        let updated =
+          trends && trends.length && trends[0] && trends[0].updated_at
+            ? trends[0].updated_at
+            : updated_at;
+
+        return updated_at && moment ? moment(updated).format("LT") : "";
       }
     },
 
